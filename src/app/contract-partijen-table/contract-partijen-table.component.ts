@@ -17,12 +17,14 @@ export class ContractPartijenTableComponent implements OnInit {
     this.getContracten();
   }
 
-  // getContracten(): void{
-  //   this.contractpartijen = this.contractenService.getContracten();
-  // }
-
   getContracten(): void {
     this.contractenService.getContracten()
     .subscribe(contractpartijen => this.contractpartijen = contractpartijen);
   }
+
+  delete(zorgverzekeraar: Zorgverzekeraar): void {
+    this.contractpartijen = this.contractpartijen.filter(c => c !== zorgverzekeraar);
+    this.contractenService.deleteContract(zorgverzekeraar).subscribe();
+  }
+
 }
