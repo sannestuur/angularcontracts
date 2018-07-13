@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Rol</th>
+      <th>Tag</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor='let contract of contractpartijen'>
+        <td>{{contract.name}}</td>
+        <td>{{contract.role}}</td>
+        <td>{{contract.tag}}</td>
+        <td>Actief
+          <button>Delete</button>
+          <button>Edit</button>
+        </td>
+      </tr>
+  </tbody>
