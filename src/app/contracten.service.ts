@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Zorgverzekeraar } from './zorgverzekeraar';
-import { CONTRACTPARTIJEN } from './contractpartijen';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContractenService {
+  private contractenUrl = 'api/contractpartijen';  // URL to web api
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  getContracten(): Zorgverzekeraar[] {
-    return CONTRACTPARTIJEN;
+  getContracten (): Observable<Zorgverzekeraar[]> {
+    return this.http.get<Zorgverzekeraar[]>(this.contractenUrl);
   }
+
+
 }

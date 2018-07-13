@@ -17,7 +17,12 @@ export class ContractPartijenTableComponent implements OnInit {
     this.getContracten();
   }
 
-  getContracten(): void{
-    this.contractpartijen = this.contractenService.getContracten();
+  // getContracten(): void{
+  //   this.contractpartijen = this.contractenService.getContracten();
+  // }
+
+  getContracten(): void {
+    this.contractenService.getContracten()
+    .subscribe(contractpartijen => this.contractpartijen = contractpartijen);
   }
 }
