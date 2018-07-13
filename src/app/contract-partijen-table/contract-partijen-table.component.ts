@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CONTRACTPARTIJEN } from '../contractpartijen'
+import { ContractenService } from '../contracten.service';
+import { Zorgverzekeraar } from '../zorgverzekeraar';
 
 @Component({
   selector: 'app-contract-partijen-table',
@@ -8,11 +9,15 @@ import { CONTRACTPARTIJEN } from '../contractpartijen'
 })
 export class ContractPartijenTableComponent implements OnInit {
 
-  contractpartijen = CONTRACTPARTIJEN;
+  contractpartijen: Zorgverzekeraar[];
 
-  constructor() { }
+  constructor(private contractenService: ContractenService) { }
 
   ngOnInit() {
+    this.getContracten();
   }
 
+  getContracten(): void{
+    this.contractpartijen = this.contractenService.getContracten();
+  }
 }
