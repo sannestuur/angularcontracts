@@ -1,3 +1,5 @@
+<app-bewerken [zorgverzekeraar]="selectedZorgverzekeraar"></app-bewerken>
+
 <table>
   <thead>
     <tr>
@@ -14,7 +16,7 @@
         <td>{{contract.tag}}</td>
         <td>Actief
           <button class="delete" (click)="delete(contract)">Delete</button>
-          <button>Edit</button>
+          <button (click)="onSelect(contract)">Edit</button>
         </td>
       </tr>
   </tbody>

@@ -1,8 +1,9 @@
-<div>
-    <h3>Filters</h3>
-    <div>
-      Naam <input type='text'/>
-    </div>
+<div  *ngIf="zorgverzekeraar">
+    <h3>Bewerken</h3>
+    <div><span>{{zorgverzekeraar.name}}</span></div>
+    <label>
+      Naam <input class="text"/>
+    </label>
     <div> Rol
       <select>
         <option value=0>ZVZ</option>
@@ -25,4 +26,4 @@
     <div>
         <button (click)="save()">save</button>
     </div>
-  </div>
+</div>

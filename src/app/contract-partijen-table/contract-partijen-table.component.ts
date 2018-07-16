@@ -8,8 +8,12 @@ import { Zorgverzekeraar } from '../zorgverzekeraar';
   styleUrls: ['./contract-partijen-table.component.css']
 })
 export class ContractPartijenTableComponent implements OnInit {
-
   contractpartijen: Zorgverzekeraar[];
+  selectedZorgverzekeraar: Zorgverzekeraar;
+
+  onSelect(zorgverzekeraar: Zorgverzekeraar): void {
+    this.selectedZorgverzekeraar = zorgverzekeraar;
+  }
 
   constructor(private contractenService: ContractenService) { }
 
